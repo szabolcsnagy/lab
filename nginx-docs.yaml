@@ -1,0 +1,12 @@
+piVersion: v1
+kind: Pod
+metadata:
+	method: fromdoc
+  name: nginx-docs
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.14.2
+    ports:
+    - containerPort: 80
+
