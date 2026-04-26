@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: frontend-deploy-label
+  name: frontend-deploy
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: frontend-deploy
+  template:
+    metadata:
+      labels:
+        app: frontend-deploy
+    spec:
+      containers:
+      - image: httpd:alpine
+        name: httpd
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+
